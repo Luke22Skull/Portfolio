@@ -4,7 +4,7 @@
   "description": "iLukeDuke's Portfolio",
   "main": "index.js",
   "scripts": {
-    "test": "npx @tailwindcss/cli -i ./main.css -o ./css_schema/output.css --watch"
+    "build": "npx @tailwindcss/cli -i ./css_src/main.css -o ./output.css --watch"
   },
   "repository": {
     "type": "git",

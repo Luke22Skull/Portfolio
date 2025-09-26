@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+/* Importa prima i file base */
+@import "./base/reset.css";
+@import "./base/variables.css";
+
+/* Poi i componenti */
+@import "./components/header.css";
+@import "./components/hero.css";
+@import "./components/about.css";
+
+/* Infine le utility */
+@import "./utilities/utilities.css";
+@import "./utilities/responsive.css";

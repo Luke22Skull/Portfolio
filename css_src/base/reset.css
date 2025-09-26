@@ -23,7 +23,7 @@ body {
     -ms-overflow-style: none;
 
     background: linear-gradient(rgba(29, 28, 70, 0.95), rgba(29, 28, 70, 0.8)),
-    url('../Assets/bg_image.jpg') center top / auto;
+    url('./Assets/bg_image.jpg') center top / auto;
 }
 
 /* Nascondi scrollbar */

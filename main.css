@@ -1,8 +1,0 @@
-@import "tailwindcss";
-@import "base/reset.css";
-@import "base/variables.css";
-@import "components/header.css";
-@import "components/hero.css";
-@import "components/about.css";
-@import "utilities/utilities.css";
-@import "base/responsive.css";
