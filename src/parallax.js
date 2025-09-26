@@ -5,7 +5,7 @@ window.addEventListener('scroll', function() {
         window.requestAnimationFrame(function() {
             const bodySection = document.querySelector('body');
             const scrollPosition = window.scrollY;
-            const parallaxSpeed = 0.85; // Velocità dell'effetto parallasse
+            const parallaxSpeed = 0.7; // Velocità dell'effetto parallasse
 
             if (window.innerWidth > 768) {
                 let parallaxOffset = scrollPosition * parallaxSpeed;

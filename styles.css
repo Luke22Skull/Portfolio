@@ -13,13 +13,14 @@ html, body {
     scrollbar-width: none; /* Nasconde la scrollbar su Firefox */
     -ms-overflow-style: none; /* Nasconde la scrollbar su Internet Explorer/Edge */
 
-    background-image: linear-gradient(rgba(26, 26, 64, 0.8), rgba(26, 26, 64, 0.8)),
+    background-color: rgba(28, 28, 66, 0.8);
+    background-image: linear-gradient(rgba(28, 28, 66, 0.8), rgba(28, 28, 66, 0.8)),
     url('Assets/bg_image.jpg');
-    background-size: auto;
+    background-repeat: repeat-x;
+    background-size: auto; /* Mostra l'immagine a dimensione originale su desktop */
     background-position: top;
     background-attachment: scroll;
     position: relative;
-    /* overflow: hidden; */
 }
 
 /* Nasconde la scrollbar su browser WebKit (Chrome, Safari, ecc.) */
@@ -159,16 +160,18 @@ h5, .h5 { font-size: var(--step-1); }
 
 /* Contenitore principale per limitare la larghezza massima */
 .wrapper {
-    width: 100%;
-    max-width: 1240px;
+    width: min(90vw, 1240px);
     margin: 0 auto;
+    /* max-width: 1240px;
+    width: 100%; */
 }
 
 /* Contenitore interno per sezioni più strette */
 .wrapper_inner {
-    width: 100%;
-    max-width: 800px;
+    width: min(95vw, 800px);
     margin: 0 auto;
+    /* max-width: 800px;
+    width: 100%; */
 }
 
 /* ==========================================================================
@@ -203,30 +206,28 @@ h5, .h5 { font-size: var(--step-1); }
 
 /* Stile generale per le sezioni */
 section {
-    padding: var(--space-2xl) var(--space-l);
+    padding-block: clamp(2rem, 6vw, 7.5rem);
+    padding-inline: clamp(1rem, 6vw, 5rem);
 }
 
 /* Stile specifico per la sezione hero con background aggiornato */
 section#hero {
-    /* Usa un gradiente sopra l'immagine per mantenere leggibilità del testo */
-    /* background-image: linear-gradient(rgba(26, 26, 64, 0.8), rgba(26, 26, 64, 0.8)),
-    url('Assets/bg_image.jpg'); */
+    /* Usa il background del body, nessun override qui */
     padding-bottom: 20%;
-    /*
-    background-size: cover;
-    background-position: center top;
-    background-attachment: scroll; */
     color: #fafafa;
     --color-accent: #8a2be2;
     position: relative;
-    /* overflow: hidden; */
 }
 
 /* Disabilita l'effetto parallasse su dispositivi mobili per migliorare le prestazioni */
 @media (max-width: 768px) {
+    html, body {
+        background-size: cover !important; /* Adatta l'immagine a tutto lo schermo su mobile */
+        background-position: center !important;
+    }
     section#hero {
-        background-attachment: scroll; /* Disabilita l'effetto parallasse */
-        background-position: center; /* Ripristina la posizione del background */
+        background-attachment: scroll;
+        background-position: center;
     }
 }
 
