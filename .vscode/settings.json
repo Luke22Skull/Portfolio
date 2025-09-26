@@ -1,0 +1,11 @@
+{
+  "tailwindCSS.includeLanguages": {
+    "html": "html"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["class=\"([^\"]*)\"", "class='([^']*)'", "class=\\s*\"([^\"]*)\"", "class=\\s*'([^']*)'"]
+  ],
+  "editor.quickSuggestions": {
+    "strings": true
+  }
+}

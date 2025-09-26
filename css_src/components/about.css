@@ -6,7 +6,8 @@
 #about {
     color: rgb(var(--color-text-dark));
     position: relative;
-    margin-top: 20%;
+    padding-block: var(--space-3xl);
+    padding-top: 500px;
 }
 
 .about_text {

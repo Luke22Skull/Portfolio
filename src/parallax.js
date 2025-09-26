@@ -13,7 +13,6 @@ window.addEventListener('scroll', function() {
             } else {
                 bodySection.style.backgroundPositionY = 'center';
             }
-
             ticking = false;
         });
 

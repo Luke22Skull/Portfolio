@@ -5,7 +5,7 @@
     /* Disabilita parallasse su mobile */
     body {
         background-attachment: scroll;
-        background-size: cover;
+        background-size: auto;
     }
     
     .site_header_nav ul {
@@ -27,6 +27,7 @@
         transform: skewX(0deg);
         text-align: center;
         gap: var(--space-xl);
+        /* margin-top: 50%; */
     }
     
     .about_content_safe:hover {
