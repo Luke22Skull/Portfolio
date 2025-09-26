@@ -1,0 +1,33 @@
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+.wrapper {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+.wrapper_inner {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+}
+
+.flex_center { justify-content: center; }
+.flex_around { justify-content: space-around; }
+.flex_between { justify-content: space-between; }
+
+.text_center { text-align: center; }
+
+/* Typography */
+.h1 { font-size: var(--step-5); }
+.h2 { font-size: var(--step-4); }
+.h3 { font-size: var(--step-3); }
+.h4 { font-size: var(--step-2); }
+.h5 { font-size: var(--step-1); }

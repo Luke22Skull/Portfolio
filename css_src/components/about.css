@@ -1,0 +1,71 @@
+/* ==========================================================================
+   About Section Styles
+   ========================================================================== */
+
+/* About Section */
+#about {
+    color: rgb(var(--color-text-dark));
+    position: relative;
+    margin-top: 20%;
+}
+
+.about_text {
+    padding: 0 10%;
+    margin-bottom: var(--space-2xl);
+}
+
+.about_text h3 {
+    font-size: var(--step-2);
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.about_content_safe {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: var(--space-l);
+    padding: var(--space-l) 0;
+    transform: skewX(-5deg);
+    transition: transform 0.3s ease;
+}
+
+.about_figure {
+    text-align: center;
+    padding: var(--space-xs) var(--space-s);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(var(--color-accent-purple), 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.about_figure:hover {
+    border-color: rgba(var(--color-accent-purple), 0.6);
+    transform: translateY(-5px);
+}
+
+.about_img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: grayscale(0.3);
+    transition: filter 0.3s ease;
+}
+
+.about_figure:hover .about_img {
+    filter: grayscale(0);
+}
+
+.about_caption {
+    margin-top: var(--space-s);
+    font-weight: 600;
+    color: rgb(var(--color-accent-purple));
+}
+
+.about_content_safe .h5 {
+    font-size: var(--step-0);
+    line-height: 1.6;
+    max-width: 400px;
+}

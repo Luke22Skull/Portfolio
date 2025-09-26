@@ -1,0 +1,55 @@
+/* ==========================================================================
+   Reset e Base Styles
+   ========================================================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    min-height: 100vh;
+    font-family: sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    background: linear-gradient(rgba(29, 28, 70, 0.95), rgba(29, 28, 70, 0.8)),
+    url('../Assets/bg_image.jpg') center top / auto;
+}
+
+/* Nascondi scrollbar */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Reset liste */
+ul[role='list'], ol[role='list'] {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Accessibilità */
+@media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; }
+}
+
+/* Focus accessibility */
+:focus-visible {
+    outline: 2px solid rgb(var(--color-accent-purple));
+    outline-offset: 0.25rem;
+}

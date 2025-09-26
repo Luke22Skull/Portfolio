@@ -1,0 +1,54 @@
+/* ==========================================================================
+   Responsive Design
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Disabilita parallasse su mobile */
+    body {
+        background-attachment: scroll;
+        background-size: cover;
+    }
+    
+    .site_header_nav ul {
+        flex-direction: column;
+        gap: var(--space-s);
+    }
+    
+    .hero_social {
+        flex-direction: column;
+        gap: var(--space-m);
+        text-align: center;
+        position: relative;
+        bottom: auto;
+        margin-top: var(--space-2xl);
+    }
+    
+    .about_content_safe {
+        flex-direction: column;
+        transform: skewX(0deg);
+        text-align: center;
+        gap: var(--space-xl);
+    }
+    
+    .about_content_safe:hover {
+        transform: translateY(-5px);
+    }
+    
+    .about_text {
+        padding: 0 var(--space-m);
+    }
+    
+    section {
+        padding-inline: var(--space-m);
+    }
+}
+
+@media (max-width: 480px) {
+    .hero_content h1 {
+        font-size: var(--step-4);
+    }
+    
+    .about_img {
+        width: 200px;
+        height: 200px;
+    }
+}
