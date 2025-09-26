@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "iLukeDuke's Portfolio",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx @tailwindcss/cli -i ./styles.css -o ./css_schema/output.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Luke22Skull/Portfolio.git"
+  },
+  "author": "Antonicelli Luca",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Luke22Skull/Portfolio/issues"
+  },
+  "homepage": "https://github.com/Luke22Skull/Portfolio#readme",
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.13",
+    "tailwindcss": "^4.1.13"
+  }
+}

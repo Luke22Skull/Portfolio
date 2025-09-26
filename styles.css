@@ -1,96 +1,83 @@
-/* ==========================================================================
-   Reset e Base Styles
-   ========================================================================== */
+@import "tailwindcss";
 
-/* Imposta il box-sizing su border-box per tutti gli elementi, includendo padding e border */
+/* ==========================================================================
+   CSS Reset Moderno
+   ========================================================================== */
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: sans-serif;
-}
-
-html, body {
-    overflow-y: scroll; /* Mantiene lo scroll attivo */
-    scrollbar-width: none; /* Nasconde la scrollbar su Firefox */
-    -ms-overflow-style: none; /* Nasconde la scrollbar su Internet Explorer/Edge */
-
-    background-color: rgba(28, 28, 66, 0.8);
-    background-image: linear-gradient(rgba(28, 28, 66, 0.8), rgba(28, 28, 66, 0.8)),
-    url('Assets/bg_image.jpg');
-    background-repeat: repeat-x;
-    background-size: auto; /* Mostra l'immagine a dimensione originale su desktop */
-    background-position: top;
-    background-attachment: scroll;
-    position: relative;
-}
-
-/* Nasconde la scrollbar su browser WebKit (Chrome, Safari, ecc.) */
-html::-webkit-scrollbar, body::-webkit-scrollbar {
-    display: none;
-}
-
-/* Rimuove i margini predefiniti da elementi comuni */
-body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
     margin: 0;
-}
-
-/* Rimuove stili di elenco e padding per ul/ol con ruolo di lista */
-ul[role='list'],
-ol[role='list'] {
-    list-style: none;
     padding: 0;
 }
 
-/* Abilita lo scroll fluido per l'intera pagina quando un elemento è focalizzato */
-html:focus-within {
+html {
     scroll-behavior: smooth;
+    font-size: 100%;
 }
 
-/* Imposta le proprietà base del body */
 body {
-    min-height: 100vh; /* Altezza minima pari all'altezza della viewport */
-    text-rendering: optimizeSpeed; /* Ottimizza la resa del testo */
-    line-height: -0.01em; /* Riduce lo spazio tra le linee per un layout più compatto */
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    text-rendering: optimizeSpeed;
+    overflow-x: hidden;
 }
 
-/* Stile predefinito per i link senza classi */
+/* Nascondi scrollbar ma mantieni funzionalità */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* Reset elementi specifici */
+ul[role='list'], ol[role='list'] {
+    list-style: none;
+}
+
+img, picture, video, canvas {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
 a:not([class]) {
-    text-decoration-skip-ink: auto; /* Consente al browser di saltare la decorazione del testo nei link */
+    text-decoration-skip-ink: auto;
 }
 
-/* Migliora la gestione delle immagini */
-img, picture {
-    max-width: 100%; /* Limita la larghezza massima al 100% del contenitore */
-    display: block; /* Visualizza l'immagine come elemento a blocco, centrato per default */
-}
-
-/* Eredita il font dai genitori per input e pulsanti */
-input, button, textarea, select {
+button, input, textarea, select {
     font: inherit;
+    border: none;
+    background: none;
 }
 
-/* Disabilita lo scroll fluido se l'utente preferisce movimenti ridotti */
+/* Accessibilità - riduzione movimento */
 @media (prefers-reduced-motion: reduce) {
-    html:focus-within {
+    html {
         scroll-behavior: auto;
+    }
+    
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }
 
-/* Stili personalizzati per la focalizzazione */
-:focus {
-    outline: 2px dashed #00ff19; /* Contorno visibile per accessibilità */
-    outline-offset: 0.25rem; /* Spaziatura tra contorno ed elemento */
-}
-
-main:focus {
-    outline: none; /* Rimuove il contorno dal main quando focalizzato */
-}
-
 /* ==========================================================================
-   Variabili CSS (da Utopia)
+   Sistema di Design - Variabili CSS
    ========================================================================== */
-
-/* Variabili per le dimensioni del testo */
 :root {
+    /* Colori */
+    --color-primary: 28, 28, 66;
+    --color-primary-solid: 26, 26, 64;
+    --color-text-light: 250, 250, 250;
+    --color-text-dark: 51, 51, 51;
+    --color-accent-purple: 138, 43, 226;
+    --color-accent-gold: 255, 215, 0;
+    
+    /* Typography Scale - Utopia */
     --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
     --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
     --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
@@ -99,10 +86,8 @@ main:focus {
     --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
     --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
     --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
-}
-
-/* Variabili per gli spazi */
-:root {
+    
+    /* Spacing Scale */
     --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
     --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
     --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
@@ -114,162 +99,419 @@ main:focus {
     --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
 }
 
-/* Assegna dimensioni ai titoli basate sulle variabili */
-h1, .h1 { font-size: var(--step-5); }
-h2, .h2 { font-size: var(--step-4); }
-h3, .h3 { font-size: var(--step-3); }
-h4, .h4 { font-size: var(--step-2); }
-h5, .h5 { font-size: var(--step-1); }
-
 /* ==========================================================================
-   Utilità di Layout
+   Effetto Parallasse Puro CSS
    ========================================================================== */
 
-/* Stile per layout flex */
-.flex {
+/* Container principale per parallasse */
+.parallax-container {
+    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Layer di background fisso per effetto parallasse */
+.parallax-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 120%; /* Extra height per scroll */
+    z-index: -2;
+    background-image: url('../Assets/bg_image.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    transform: translateZ(0);
+    will-change: transform;
+}
+
+/* Overlay semitrasparente fisso */
+.parallax-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        rgba(var(--color-primary), 0.9),
+        rgba(var(--color-primary), 0.8)
+    );
+    z-index: -1;
+}
+
+/* Contenuto che scorre sopra il background fisso */
+.parallax-content {
+    position: relative;
+    z-index: 1;
+    background: transparent;
+}
+
+/* ==========================================================================
+   Component Styles
+   ========================================================================== */
+
+/* Header */
+.site_header {
+    position: relative;
+    z-index: 100;
+    padding: var(--space-xs) 0;
+    background: linear-gradient(
+        rgba(var(--color-primary-solid), 1),
+        rgba(var(--color-primary-solid), 0.95)
+    );
+    backdrop-filter: blur(10px);
+}
+
+.site_header_nav ul {
+    display: flex;
+    gap: var(--space-m);
+    align-items: center;
+    justify-content: center;
+}
+
+.site_header_nav a {
+    color: rgb(var(--color-text-light));
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.site_header_nav a:hover {
+    color: rgb(var(--color-accent-purple));
+}
+
+.site_header_nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: rgb(var(--color-accent-purple));
+    transition: width 0.3s ease;
+}
+
+.site_header_nav a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+#hero {
+    min-height: 100vh;
     display: flex;
     align-items: center;
+    justify-content: center;
+    color: rgb(var(--color-text-light));
+    text-align: center;
+    position: relative;
+}
+
+.hero_content {
+    position: relative;
+    z-index: 2;
+    padding: var(--space-3xl) 0;
+}
+
+.hero_content h1 {
+    font-size: var(--step-5);
+    margin-bottom: var(--space-s);
+    background: linear-gradient(135deg, rgb(var(--color-text-light)), rgb(var(--color-accent-purple)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero_content .h5 {
+    font-size: var(--step-1);
+    opacity: 0.9;
+}
+
+.hero_social {
+    position: absolute;
+    bottom: var(--space-xl);
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 var(--space-xl);
+}
+
+.hero_social address {
+    font-style: normal;
+    opacity: 0.7;
+    font-size: var(--step--1);
+}
+
+.hero_social ul {
+    display: flex;
     gap: var(--space-s);
+    align-items: center;
 }
 
-@media (max-width: 468px) {
-    .flex {
-        flex-wrap: wrap; /* Permette il wrapping su schermi piccoli */
-    }
+.hero_social a {
+    transition: transform 0.3s ease;
+    display: block;
 }
 
-.flex_center { justify-content: center; }
-.flex_around { justify-content: space-around; }
-.flex_between { justify-content: space-between; }
-
-@media (max-width: 468px) {
-    .flex_around { justify-content: center; }
-    .flex_between { justify-content: center; }
+.hero_social a:hover {
+    transform: translateY(-2px);
 }
 
-/* Allineamento del testo */
-.text_center { text-align: center; }
-.text_right { text-align: right; }
+/* About Section */
+#about {
+    position: relative;
+    z-index: 2;
+    background: rgba(var(--color-text-light), 0.98);
+    color: rgb(var(--color-text-dark));
+    margin-top: -1px; /* Sovrappone leggermente la sezione */
+}
 
-/* Definizione degli spazi personalizzati */
-.padding-top-3xs { padding: var(--space-3xs); }
+.about_text {
+    padding: 0 10%;
+    margin-bottom: var(--space-2xl);
+}
+
+.about_text h3 {
+    font-size: var(--step-2);
+    line-height: 1.4;
+    font-weight: 300;
+}
+
+.about_content {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: var(--space-l);
+    padding: var(--space-l) 0;
+    transform: skewX(-5deg);
+    transition: transform 0.3s ease;
+}
+
+.about_content:hover {
+    transform: skewX(-5deg) scale(1.02);
+}
+
+.about_figure {
+    text-align: center;
+    padding: var(--space-xl) var(--space-l);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 3px solid rgba(var(--color-accent-purple), 0.2);
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.about_figure:hover {
+    border-color: rgba(var(--color-accent-purple), 0.6);
+    transform: translateY(-5px);
+}
+
+.about_img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 8px;
+    filter: grayscale(0.3);
+    transition: filter 0.3s ease;
+}
+
+.about_figure:hover .about_img {
+    filter: grayscale(0);
+}
+
+.about_caption {
+    margin-top: var(--space-s);
+    font-weight: 600;
+    color: rgb(var(--color-accent-purple));
+}
+
+.about_content .h5 {
+    font-size: var(--step-0);
+    line-height: 1.6;
+    max-width: 400px;
+}
 
 /* ==========================================================================
-   Wrapper
+   Utility Classes
    ========================================================================== */
 
-/* Contenitore principale per limitare la larghezza massima */
+/* Layout Utilities */
 .wrapper {
     width: 100%;
     max-width: 1240px;
     margin: 0 auto;
 }
 
-/* Contenitore interno per sezioni più strette */
 .wrapper_inner {
     width: 100%;
     max-width: 800px;
     margin: 0 auto;
 }
 
+.flex {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+}
+
+.flex_center { justify-content: center; }
+.flex_around { justify-content: space-around; }
+.flex_between { justify-content: space-between; }
+.flex_col { flex-direction: column; }
+
+.text_center { text-align: center; }
+.text_right { text-align: right; }
+
+/* Typography Scale */
+.h1 { font-size: var(--step-5); line-height: 1.1; }
+.h2 { font-size: var(--step-4); line-height: 1.2; }
+.h3 { font-size: var(--step-3); line-height: 1.3; }
+.h4 { font-size: var(--step-2); line-height: 1.3; }
+.h5 { font-size: var(--step-1); line-height: 1.4; }
+.h6 { font-size: var(--step-0); line-height: 1.4; }
+
+/* Spacing Utilities */
+.padding-top-3xs { padding-top: var(--space-3xs); }
+
 /* ==========================================================================
-   Stili delle Sezioni
+   Responsive Design - Mobile First
    ========================================================================== */
 
-/* Stile per l'header del sito */
-.site_header {
-    padding: var(--space-xs) 0;
-    background: linear-gradient(rgba(26, 26, 64, 1.0), rgba(26, 26, 64, 1.0));
-}
-
-.site_header_nav ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-/* Stile per la sezione hero */
-.hero_content {
-    position: relative;
-    z-index: 1;
-    padding: var(--space-3xl) 0;
-}
-
-.hero_content h1 {
-    margin-bottom: var(--space-s);
-}
-
-.hero_social {
-    padding-top: var(--space-3xl);
-}
-
-/* Stile generale per le sezioni */
-section {
-    padding-block: clamp(2rem, 6vw, 7.5rem);
-    padding-inline: clamp(1rem, 6vw, 5rem);
-}
-
-/* Stile specifico per la sezione hero con background aggiornato */
-section#hero {
-    /* Usa il background del body, nessun override qui */
-    padding-bottom: 15%;
-    color: #fafafa;
-    --color-accent: #8a2be2;
-    position: relative;
-}
-
-/* Disabilita l'effetto parallasse su dispositivi mobili per migliorare le prestazioni */
 @media (max-width: 768px) {
-    html, body {
-        background-size: cover !important; /* Adatta l'immagine a tutto lo schermo su mobile */
-        background-position: center !important;
-    }
-    section#hero {
+    /* Disabilita parallasse su mobile per performance */
+    .parallax-background {
+        position: absolute;
         background-attachment: scroll;
-        background-position: center;
+        height: 100%;
     }
-}
-
-/* Stile per la sezione about */
-.about_content {
-    /* gap: var(--space-l); */
-    padding: var(--space-l) 0;
-    transform: skewX(-10deg); /* Effetto inclinato */
-}
-
-@media (max-width: 468px) {
+    
+    .parallax-overlay {
+        position: absolute;
+    }
+    
+    /* Layout mobile */
+    .site_header_nav ul {
+        flex-direction: column;
+        gap: var(--space-s);
+    }
+    
+    .hero_social {
+        flex-direction: column;
+        gap: var(--space-m);
+        text-align: center;
+        position: relative;
+        bottom: auto;
+        margin-top: var(--space-2xl);
+    }
+    
     .about_content {
-        transform: skewX(0deg); /* Rimuove l'effetto inclinato su schermi piccoli */
+        flex-direction: column;
+        transform: skewX(0deg);
+        text-align: center;
+        gap: var(--space-xl);
+    }
+    
+    .about_content:hover {
+        transform: scale(1.01);
+    }
+    
+    .about_text {
+        padding: 0 var(--space-m);
+    }
+    
+    section {
+        padding-inline: var(--space-m);
     }
 }
 
-.about_figure {
-    padding: var(--space-xl) 0;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid #ccc;
-    display: inline-block;
-    padding: 5px;
+@media (max-width: 480px) {
+    .hero_content h1 {
+        font-size: var(--step-4);
+    }
+    
+    .about_img {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .about_content .h5 {
+        font-size: var(--step--1);
+    }
 }
 
-.about_img {
-    width: 300px;
-    height: 200px;
-    object-fit: cover;
+/* ==========================================================================
+   Animazioni e Transizioni
+   ========================================================================== */
+
+.fade-in {
+    animation: fadeIn 1s ease-in-out;
 }
 
-.about_caption {
-    padding: var(--space-3xs) 0;
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.about_text {
-    padding-left: 10%;
-    padding-right: 10%;
-    margin-bottom: 60px;
-    margin-inline-end: auto;
+.slide-in-left {
+    animation: slideInLeft 0.8s ease-out;
 }
 
-section#about {
-    padding-bottom: 10%;
-    background: transparent;
-    color: #333;
-    --color-accent: #ffd700;
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ==========================================================================
+   Accessibilità e Focus Management
+   ========================================================================== */
+
+:focus-visible {
+    outline: 2px solid rgb(var(--color-accent-purple));
+    outline-offset: 0.25rem;
+    border-radius: 4px;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: rgb(var(--color-accent-purple));
+    color: white;
+    padding: var(--space-2xs) var(--space-s);
+    border-radius: 4px;
+    text-decoration: none;
+    z-index: 1000;
+    transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* High contrast support */
+@media (prefers-contrast: high) {
+    .about_figure {
+        border: 2px solid rgb(var(--color-text-dark));
+        background: white;
+    }
+    
+    .site_header_nav a::after {
+        background: rgb(var(--color-text-dark));
+    }
 }

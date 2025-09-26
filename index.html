@@ -3,72 +3,78 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="./css_schema/output.css" />
     <title>iLukeDuke - Dev Portfolio</title>
   </head>
   <body>
-    <script src="src/parallax.js"></script>
-    <header class="site_header">
-      <div class="wrapper_inner">
-        <nav class="site_header_nav">
-          <ul role="list" class="flex flex_center">
-            <li><a href="#0">HOME</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#work">WORK</a></li>
-            <li><a href="#contact">CONTACT</a></li>
-          </ul>
-        </nav>
+    <!-- <script src="src/parallax.js"></script> -->
+    <div class="parallax-container">
+      <div class="parallax-background"></div>
+      <div class="parallax-overlay"></div>
+      <div class="parallax-content">
+        <header class="site_header">
+          <div class="wrapper_inner">
+            <nav class="site_header_nav">
+              <ul role="list" class="flex flex_center">
+                <li><a href="#0">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#work">WORK</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+        <main>
+          <section id="hero" class="parallax-section">
+            <div class="wrapper">
+              <div class="wrapper_inner">
+                <div class="text_center hero_content">
+                  <h1 class="h2">Luca Antonicelli</h1>
+                  <p class="h5">Software Engineer & Developer</p>
+                </div>
+              </div>
+              <ul role="list" class="flex flex_between hero_social">
+                <address>white clouds illustration, pixel art</address>
+                <ul role="list" class="flex">
+                  <li>Find me online</li>
+                  <li>
+                    <a href="https://github.com/Luke22Skull" target="_blank">
+                      <img src="Assets/github-mark-white.svg" alt="GitHub" width="24" height="24" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://www.linkedin.com/in/luca-antonicelli/" target="_blank">
+                      <img src="Assets/linkedin.svg" alt="LinkedIn" width="24" height="24" />
+                    </a>
+                  </li>
+                </ul>
+              </ul>
+            </div>
+          </section>
+          <section id="about">
+            <div class="wrapper">
+              <div class="text_center about_text">
+                <h3>
+                  I'm Luca, 
+                  a passionate software engineer with a knack for creating efficient, scalable, and creative solutions.
+                  When I'm not coding, you'll find me building my skillset and exploring new technologies.
+                </h3>
+              </div>
+              <div class="wrapper_inner">
+                <div class="about_content flex flex_around">
+                  <figure class="about_figure text_center">
+                    <img src="Assets/user.JPG" alt="Developer Photo" width="200" height="200" class="about_img"/>
+                    <figcaption class="about_caption">iLukeDuke</figcaption>
+                  </figure>
+                  <p class="h5">
+                    Born in Bari, Italy, I spent most of my adolescent years discovering the world of programming.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
       </div>
-    </header>
-    <main>
-      <section id="hero">
-        <div class="wrapper">
-          <div class="wrapper_inner">
-            <div class="text_center hero_content">
-              <h1 class="h2">Luca Antonicelli</h1>
-              <p class="h5">Software Engineer & Developer</p>
-            </div>
-          </div>
-          <ul role="list" class="flex flex_between hero_social">
-            <address>white clouds illustration, pixel art</address>
-            <ul role="list" class="flex">
-              <li>Find me online</li>
-              <li>
-                <a href="https://github.com/Luke22Skull" target="_blank">
-                  <img src="Assets/github-mark-white.svg" alt="GitHub" width="24" height="24" />
-                </a>
-              </li>
-              <li>
-                <a href="https://www.linkedin.com/in/luca-antonicelli/" target="_blank">
-                  <img src="Assets/linkedin.svg" alt="LinkedIn" width="24" height="24" />
-                </a>
-              </li>
-            </ul>
-          </ul>
-        </div>
-      </section>
-      <section id="about">
-        <div class="wrapper">
-          <div class="text_center about_text">
-            <h3>
-              I'm Luca, 
-              a passionate software engineer with a knack for creating efficient, scalable, and creative solutions.
-              When I'm not coding, you'll find me building my skillset and exploring new technologies.
-            </h3>
-          </div>
-          <div class="wrapper_inner">
-            <div class="about_content flex flex_around">
-              <figure class="about_figure text_center">
-                <img src="Assets/user.JPG" alt="Developer Photo" width="200" height="200" class="about_img"/>
-                <figcaption class="about_caption">iLukeDuke</figcaption>
-              </figure>
-              <p class="h5">
-                Born in Bari, Italy, I spent most of my adolescent years discovering the world of programming.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+    </div>
   </body>
 </html>
