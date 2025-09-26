@@ -211,7 +211,7 @@ section {
 /* Stile specifico per la sezione hero con background aggiornato */
 section#hero {
     /* Usa il background del body, nessun override qui */
-    padding-bottom: 20%;
+    padding-bottom: 15%;
     color: #fafafa;
     --color-accent: #8a2be2;
     position: relative;
@@ -260,8 +260,15 @@ section#hero {
     padding: var(--space-3xs) 0;
 }
 
+.about_text {
+    padding-left: 10%;
+    padding-right: 10%;
+    margin-bottom: 60px;
+    margin-inline-end: auto;
+}
+
 section#about {
-    padding-top: 20%;
+    padding-bottom: 10%;
     background: transparent;
     color: #333;
     --color-accent: #ffd700;
