@@ -1,0 +1,269 @@
+/* ==========================================================================
+   Reset e Base Styles
+   ========================================================================== */
+
+/* Imposta il box-sizing su border-box per tutti gli elementi, includendo padding e border */
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+html, body {
+    overflow-y: scroll; /* Mantiene lo scroll attivo */
+    scrollbar-width: none; /* Nasconde la scrollbar su Firefox */
+    -ms-overflow-style: none; /* Nasconde la scrollbar su Internet Explorer/Edge */
+
+    background-image: linear-gradient(rgba(26, 26, 64, 0.8), rgba(26, 26, 64, 0.8)),
+    url('Assets/bg_image.jpg');
+    background-size: auto;
+    background-position: top;
+    background-attachment: scroll;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+/* Nasconde la scrollbar su browser WebKit (Chrome, Safari, ecc.) */
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Rimuove i margini predefiniti da elementi comuni */
+body, h1, h2, h3, h4, p, figure, blockquote, dl, dd {
+    margin: 0;
+}
+
+/* Rimuove stili di elenco e padding per ul/ol con ruolo di lista */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+    padding: 0;
+}
+
+/* Abilita lo scroll fluido per l'intera pagina quando un elemento è focalizzato */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Imposta le proprietà base del body */
+body {
+    min-height: 100vh; /* Altezza minima pari all'altezza della viewport */
+    text-rendering: optimizeSpeed; /* Ottimizza la resa del testo */
+    line-height: -0.01em; /* Riduce lo spazio tra le linee per un layout più compatto */
+}
+
+/* Stile predefinito per i link senza classi */
+a:not([class]) {
+    text-decoration-skip-ink: auto; /* Consente al browser di saltare la decorazione del testo nei link */
+}
+
+/* Migliora la gestione delle immagini */
+img, picture {
+    max-width: 100%; /* Limita la larghezza massima al 100% del contenitore */
+    display: block; /* Visualizza l'immagine come elemento a blocco, centrato per default */
+}
+
+/* Eredita il font dai genitori per input e pulsanti */
+input, button, textarea, select {
+    font: inherit;
+}
+
+/* Disabilita lo scroll fluido se l'utente preferisce movimenti ridotti */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+}
+
+/* Stili personalizzati per la focalizzazione */
+:focus {
+    outline: 2px dashed #00ff19; /* Contorno visibile per accessibilità */
+    outline-offset: 0.25rem; /* Spaziatura tra contorno ed elemento */
+}
+
+main:focus {
+    outline: none; /* Rimuove il contorno dal main quando focalizzato */
+}
+
+/* ==========================================================================
+   Variabili CSS (da Utopia)
+   ========================================================================== */
+
+/* Variabili per le dimensioni del testo */
+:root {
+    --step--2: clamp(0.7813rem, 0.7747rem + 0.0326vw, 0.8rem);
+    --step--1: clamp(0.9375rem, 0.9158rem + 0.1087vw, 1rem);
+    --step-0: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --step-1: clamp(1.35rem, 1.2761rem + 0.3696vw, 1.5625rem);
+    --step-2: clamp(1.62rem, 1.5041rem + 0.5793vw, 1.9531rem);
+    --step-3: clamp(1.944rem, 1.771rem + 0.8651vw, 2.4414rem);
+    --step-4: clamp(2.3328rem, 2.0827rem + 1.2504vw, 3.0518rem);
+    --step-5: clamp(2.7994rem, 2.4462rem + 1.7658vw, 3.8147rem);
+}
+
+/* Variabili per gli spazi */
+:root {
+    --space-3xs: clamp(0.3125rem, 0.3125rem + 0vw, 0.3125rem);
+    --space-2xs: clamp(0.5625rem, 0.5408rem + 0.1087vw, 0.625rem);
+    --space-xs: clamp(0.875rem, 0.8533rem + 0.1087vw, 0.9375rem);
+    --space-s: clamp(1.125rem, 1.0815rem + 0.2174vw, 1.25rem);
+    --space-m: clamp(1.6875rem, 1.6223rem + 0.3261vw, 1.875rem);
+    --space-l: clamp(2.25rem, 2.163rem + 0.4348vw, 2.5rem);
+    --space-xl: clamp(3.375rem, 3.2446rem + 0.6522vw, 3.75rem);
+    --space-2xl: clamp(4.5rem, 4.3261rem + 0.8696vw, 5rem);
+    --space-3xl: clamp(6.75rem, 6.4891rem + 1.3043vw, 7.5rem);
+}
+
+/* Assegna dimensioni ai titoli basate sulle variabili */
+h1, .h1 { font-size: var(--step-5); }
+h2, .h2 { font-size: var(--step-4); }
+h3, .h3 { font-size: var(--step-3); }
+h4, .h4 { font-size: var(--step-2); }
+h5, .h5 { font-size: var(--step-1); }
+
+/* ==========================================================================
+   Utilità di Layout
+   ========================================================================== */
+
+/* Stile per layout flex */
+.flex {
+    display: flex;
+    align-items: center;
+    gap: var(--space-s);
+}
+
+@media (max-width: 468px) {
+    .flex {
+        flex-wrap: wrap; /* Permette il wrapping su schermi piccoli */
+    }
+}
+
+.flex_center { justify-content: center; }
+.flex_around { justify-content: space-around; }
+.flex_between { justify-content: space-between; }
+
+@media (max-width: 468px) {
+    .flex_around { justify-content: center; }
+    .flex_between { justify-content: center; }
+}
+
+/* Allineamento del testo */
+.text_center { text-align: center; }
+.text_right { text-align: right; }
+
+/* Definizione degli spazi personalizzati */
+.padding-top-3xs { padding: var(--space-3xs); }
+
+/* ==========================================================================
+   Wrapper
+   ========================================================================== */
+
+/* Contenitore principale per limitare la larghezza massima */
+.wrapper {
+    width: 100%;
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+/* Contenitore interno per sezioni più strette */
+.wrapper_inner {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Stili delle Sezioni
+   ========================================================================== */
+
+/* Stile per l'header del sito */
+.site_header {
+    padding: var(--space-xs) 0;
+    background: linear-gradient(rgba(26, 26, 64, 1.0), rgba(26, 26, 64, 1.0));
+}
+
+.site_header_nav ul li a {
+    text-decoration: none;
+    color: #fff;
+}
+
+/* Stile per la sezione hero */
+.hero_content {
+    position: relative;
+    z-index: 1;
+    padding: var(--space-3xl) 0;
+}
+
+.hero_content h1 {
+    margin-bottom: var(--space-s);
+}
+
+.hero_social {
+    padding-top: var(--space-3xl);
+}
+
+/* Stile generale per le sezioni */
+section {
+    padding: var(--space-2xl) var(--space-l);
+}
+
+/* Stile specifico per la sezione hero con background aggiornato */
+section#hero {
+    /* Usa un gradiente sopra l'immagine per mantenere leggibilità del testo */
+    /* background-image: linear-gradient(rgba(26, 26, 64, 0.8), rgba(26, 26, 64, 0.8)),
+    url('Assets/bg_image.jpg'); */
+    padding-bottom: 20%;
+    /*
+    background-size: cover;
+    background-position: center top;
+    background-attachment: scroll; */
+    color: #fafafa;
+    --color-accent: #8a2be2;
+    position: relative;
+    /* overflow: hidden; */
+}
+
+/* Disabilita l'effetto parallasse su dispositivi mobili per migliorare le prestazioni */
+@media (max-width: 768px) {
+    section#hero {
+        background-attachment: scroll; /* Disabilita l'effetto parallasse */
+        background-position: center; /* Ripristina la posizione del background */
+    }
+}
+
+/* Stile per la sezione about */
+.about_content {
+    /* gap: var(--space-l); */
+    padding: var(--space-l) 0;
+    transform: skewX(-10deg); /* Effetto inclinato */
+}
+
+@media (max-width: 468px) {
+    .about_content {
+        transform: skewX(0deg); /* Rimuove l'effetto inclinato su schermi piccoli */
+    }
+}
+
+.about_figure {
+    padding: var(--space-xl) 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 2px solid #ccc;
+    display: inline-block;
+    padding: 5px;
+}
+
+.about_img {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.about_caption {
+    padding: var(--space-3xs) 0;
+}
+
+section#about {
+    padding-top: 20%;
+    background: transparent;
+    color: #333;
+    --color-accent: #ffd700;
+}
