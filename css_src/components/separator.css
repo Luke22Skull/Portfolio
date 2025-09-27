@@ -1,11 +1,10 @@
 .separator {
     margin-top: 10%;
-    margin-bottom: 10%;
     /* margin-bottom: 10%; */
 }
-
+/* 
 @media screen and (min-width: 1661px) {
     .separator {
         margin-bottom: 0;
     }
-}
+} */

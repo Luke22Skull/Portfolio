@@ -398,12 +398,6 @@ img {
 }
 .separator {
   margin-top: 10%;
-  margin-bottom: 10%;
-}
-@media screen and (min-width: 1661px) {
-  .separator {
-    margin-bottom: 0;
-  }
 }
 .wrapper {
   width: 100%;
@@ -480,6 +474,7 @@ img {
     padding-inline: var(--space-m);
   }
   .separator {
+    margin-top: 200px;
     margin-bottom: 400px;
   }
 }
@@ -490,9 +485,6 @@ img {
   .about_img {
     width: 200px;
     height: 200px;
-  }
-  .separator {
-    margin-bottom: 400px;
   }
 }
 @property --tw-font-weight {

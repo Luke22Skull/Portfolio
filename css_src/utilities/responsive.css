@@ -43,6 +43,7 @@
     }
 
     .separator {
+        margin-top: 200px;
         margin-bottom: 400px;
     }
 }
@@ -57,7 +58,4 @@
         height: 200px;
     }
 
-    .separator {
-        margin-bottom: 400px;
-    }
 }
