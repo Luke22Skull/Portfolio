@@ -8,6 +8,7 @@
 @import "./components/header.css";
 @import "./components/hero.css";
 @import "./components/about.css";
+@import "./components/separator.css";
 
 /* Infine le utility */
 @import "./utilities/utilities.css";

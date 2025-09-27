@@ -7,7 +7,9 @@
     color: rgb(var(--color-text-dark));
     position: relative;
     padding-block: var(--space-3xl);
-    padding-top: 500px;
+    /* padding-top: 500px; */
+    padding-left: 100px;
+    padding-right: 100px;
 }
 
 .about_text {
@@ -69,4 +71,11 @@
     font-size: var(--step-0);
     line-height: 1.6;
     max-width: 400px;
+}
+
+/* Quando lo schermo ha width > 1661px, riduci il padding-top */
+@media screen and (min-width: 1661px) {
+    #about {
+        padding-top: 5%;
+    }
 }

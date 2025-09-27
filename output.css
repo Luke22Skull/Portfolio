@@ -8,6 +8,7 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-amber-50: oklch(98.7% 0.022 95.277);
+    --spacing: 0.25rem;
     --text-4xl: 2.25rem;
     --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-bold: 700;
@@ -167,6 +168,21 @@
   .flex {
     display: flex;
   }
+  .h-96 {
+    height: calc(var(--spacing) * 96);
+  }
+  .min-h-96 {
+    min-height: calc(var(--spacing) * 96);
+  }
+  .w-screen {
+    width: 100vw;
+  }
+  .flex-auto {
+    flex: auto;
+  }
+  .place-self-center {
+    place-self: center;
+  }
   .text-4xl {
     font-size: var(--text-4xl);
     line-height: var(--tw-leading, var(--text-4xl--line-height));
@@ -320,7 +336,8 @@ img {
   color: rgb(var(--color-text-dark));
   position: relative;
   padding-block: var(--space-3xl);
-  padding-top: 500px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
 .about_text {
   padding: 0 10%;
@@ -373,6 +390,20 @@ img {
   font-size: var(--step-0);
   line-height: 1.6;
   max-width: 400px;
+}
+@media screen and (min-width: 1661px) {
+  #about {
+    padding-top: 5%;
+  }
+}
+.separator {
+  margin-top: 10%;
+  margin-bottom: 10%;
+}
+@media screen and (min-width: 1661px) {
+  .separator {
+    margin-bottom: 0;
+  }
 }
 .wrapper {
   width: 100%;
@@ -448,6 +479,9 @@ img {
   section {
     padding-inline: var(--space-m);
   }
+  .separator {
+    margin-bottom: 400px;
+  }
 }
 @media (max-width: 480px) {
   .hero_content h1 {
@@ -456,6 +490,9 @@ img {
   .about_img {
     width: 200px;
     height: 200px;
+  }
+  .separator {
+    margin-bottom: 400px;
   }
 }
 @property --tw-font-weight {
