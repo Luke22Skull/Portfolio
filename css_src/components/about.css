@@ -8,8 +8,8 @@
     position: relative;
     padding-block: var(--space-3xl);
     /* padding-top: 500px; */
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 .about_text {
@@ -20,7 +20,16 @@
 .about_text h3 {
     font-size: var(--step-2);
     line-height: 1.4;
-    font-weight: 300;
+    /* font-weight: 300; */
+    font-weight: bold;
+    /* colore del testo: in alto bianco, in basso porpora, con un ombra soft scura tutt'intorno*/
+    background: white;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    /* shadow */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .about_content_safe {
