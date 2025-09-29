@@ -1,6 +1,20 @@
 /* ==========================================================================
    Reset e Base Styles
    ========================================================================== */
+
+@font-face {
+    font-family: 'Infra-Font';
+    src: url('./Assets/infra-font/InfraBold.otf'),
+    url('./Assets/infra-font/InfraRegular.otf'),
+    url('./Assets/infra-font/InfraLight.otf'),
+    url('./Assets/infra-font/InfraMedium.otf'),
+    url('./Assets/infra-font/InfraSemiBold.otf'),
+    url('./Assets/infra-font/InfraThin.otf');
+
+    font-weight: normal;
+    font-style: normal;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -14,7 +28,7 @@ html {
 
 body {
     min-height: 100vh;
-    font-family: sans-serif;
+    font-family: 'Infra-Font', sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;

@@ -1,15 +1,32 @@
+
+@font-face {
+    font-family: 'Infra-Font-Bold';
+    src: url('./Assets/infra-font/InfraBold.otf');
+}
+
+@font-face {
+    font-family: 'Infra-Font-Regular';
+    src: url('./Assets/infra-font/InfraRegular.otf');
+}
+
+@font-face {
+    font-family: 'Infra-Font-Light';
+    src: url('./Assets/infra-font/InfraLight.otf');
+}
+
+@font-face {
+    font-family: 'Infra-Font-Medium';
+    src: url('./Assets/infra-font/InfraMedium.otf');
+}
+
+@font-face {
+    font-family: 'Infra-Font-SemiBold';
+    src: url('./Assets/infra-font/InfraSemiBold.otf');
+}
+
+@font-face {
+    font-family: 'Infra-Font-Thin';
+    src: url('./Assets/infra-font/InfraThin.otf');
+}
+
 @import "tailwindcss";
-
-/* Importa prima i file base */
-@import "./base/reset.css";
-@import "./base/variables.css";
-
-/* Poi i componenti */
-@import "./components/header.css";
-@import "./components/hero.css";
-@import "./components/about.css";
-@import "./components/separator.css";
-
-/* Infine le utility */
-@import "./utilities/utilities.css";
-@import "./utilities/responsive.css";
